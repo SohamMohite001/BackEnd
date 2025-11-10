@@ -10,6 +10,7 @@ const db = import("./config/mongodb-connection.js");
 
 const __filename = fileURLToPath(import.meta.url);
 const __dirname = path.dirname(__filename);
+const PORT = process.env.PORT || 3000;
 
 app.use(express.json());
 app.use(cors());
@@ -27,6 +28,6 @@ app.use('/admin',adminrouter);
 //user router
 app.use('/user',userrouter);
 
-app.listen(3000,()=>{
-    console.log("App running on port 3000");
+app.listen(PORT,()=>{
+    console.log("App running on port ",PORT);
 });
